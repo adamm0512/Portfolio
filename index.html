@@ -1,0 +1,263 @@
+<html class="scroll-smooth">
+    <head>
+        <title>Adam Shehab|Portfolio</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script>
+            tailwind.config = {
+                darkMode: 'class'
+            }
+        </script>
+    </head>    
+    <body class="p-2.5 font-['Open_Sans'] bg-black text-black dark:bg-gray-900 ">
+        <div id="benvenutoPopup" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-20 hidden dark:bg-gray-800 dark:bg-opacity-20 dark:text-white"><!--inset imposta contemporaneamente tutte e quattro le proprietà di posizionamento -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Benvenuto nel mio Portfolio!</h2>
+                    <button id="chiudiPopupBenvenuto" class="bg-[rgb(63,63,63)] dark:bg-[#495e8a] text-white px-6 py-2 rounded-lg  dark:hover:bg-[#364666] transition-colors hover:scale-110">
+                        Inizia a esplorare
+                    </button>
+                </div>
+            </div>
+        </div>
+        <nav class="fixed top-0 left-0 w-full bg-gray-100/85 py-2.5 text-center z-40 shadow-lg dark:bg-gray-800/85" id="navbar"> 
+            <div class="flex justify-between items-center px-4">
+                <div class="block lg:hidden">
+                    <button onclick="toggleMenu()" class="bg-transparent border-none cursor-pointer hover:scale-110 transition-transform">
+                        <img id="hamburger"src="img/hamburger-icon.png" class="w-12 h-12">
+                    </button>
+                </div>
+                <ul class="hidden lg:flex justify-around items-center flex-1">                
+                    <li class="nav-item"><a href="#Chisono" class="text-black text-2xl font-bold no-underline hover:text-[#495e8a] transition-colors dark:text-white dark:hover:text-[#495e8a]">Chi sono</a></li>
+                    <li class="nav-item"><a href="#Skills" class="text-black text-2xl font-bold no-underline hover:text-[#495e8a] transition-colors dark:text-white dark:hover:text-[#495e8a]">Skills</a></li>
+                    <li class="nav-item"><a href="#Progetti" class="text-black text-2xl font-bold no-underline hover:text-[#495e8a] transition-colors dark:text-white dark:hover:text-[#495e8a]">Progetti</a></li>
+                    <li class="nav-item"><a href="#Curiosità" class="text-black text-2xl font-bold no-underline hover:text-[#495e8a] transition-colors dark:text-white dark:hover:text-[#495e8a]">Curiosità</a></li>
+                    <li class="nav-item"><a href="#Contattami" class="text-black text-2xl font-bold no-underline hover:text-[#495e8a] transition-colors dark:text-white dark:hover:text-[#495e8a]">Contattami</a></li>
+                </ul>
+                <div class="flex items-center space-x-4">
+                    <a href="https://adamm0512.github.io/Portfolio/indexEng.html" target="_blank">
+                        <img src="img/Inghilterra.png" class="w-12 h-12 rounded-full object-cover hover:scale-105 transition-transform">
+                    </a>
+                    <button onclick="cambiaTema()" id="tema" class="bg-transparent border-none cursor-pointer hover:scale-110 transition-transform">
+                        <img id="icona-tema" src="img/sun.png" class="w-12 h-12">
+                    </button>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden lg:hidden w-full bg-gray-100/95 dark:bg-gray-800/95 absolute top-full left-0 py-4 shadow-lg">
+                <a href="#Chisono" class="block text-black text-2xl font-bold no-underline hover:text-[#495e8a] transition-colors dark:text-white dark:hover:text-[#495e8a] py-3">Chi sono</a>
+                <a href="#Skills" class="block text-black text-2xl font-bold no-underline hover:text-[#495e8a] transition-colors dark:text-white dark:hover:text-[#495e8a] py-3">Skills</a>
+                <a href="#Progetti" class="block text-black text-2xl font-bold no-underline hover:text-[#495e8a] transition-colors dark:text-white dark:hover:text-[#495e8a] py-3">Progetti</a>
+                <a href="#Curiosità" class="block text-black text-2xl font-bold no-underline hover:text-[#495e8a] transition-colors dark:text-white dark:hover:text-[#495e8a] py-3">Curiosità</a>
+                <a href="#Contattami" class="block text-black text-2xl font-bold no-underline hover:text-[#495e8a] transition-colors dark:text-white dark:hover:text-[#495e8a] py-3">Contattami</a>
+            </div>
+        </nav>
+        <div id="sfondo" class="min-h-screen bg-cover bg-no-repeat flex flex-col justify-center items-center text-center" style="background-image: url('img/background.gif')">
+            <h1 class="text-5xl text-white mb-6 font-bold">Adam Shehab</h1>
+            
+            <div class="sottotitolo-contenitore">
+                <h2 class="sottotitolo-scrivi text-2xl text-white  border-b border-gray-500 pb-2">Atleta,Studente e Programmatore</h2>
+            </div>
+        </div>
+        <section id="Chisono"  class=" bg-gray-100 p-8 dark:bg-gray-800">
+            <div class="max-w-7xl mx-auto">
+                <h1 class="text-4xl text-[#495e8a] font-bold mb-2">Chi sono</h1>
+                <hr class="w-14 border-t-2 border-[#495e8a] mb-8">
+                <div class="contenuto-sezione grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <img src="img/avatar.png" alt="Avatar" class=" rounded-lg shadow-lg hover:scale-105 transition-transform" width="500">
+                    </div>
+                    <div class="space-y-6">
+                        <p class="text-lg font-montserrat leading-relaxed dark:text-gray-300">
+                            Mi chiamo Adam Shehab, ho 19 anni e sono all'ultimo anno dell'istituto tecnico informatico Fermo Corni di Ravarino (MO). Sebbene abbia accumulato diverse esperienze lavorative, il mio sogno è laurearmi in informatica. La passione per i videogiochi mi ha avvicinato al mondo dell'informatica, spingendomi a sviluppare competenze in programmazione e a sperimentare con nuove tecnologie.
+                            In questo portfolio troverai i miei progetti e le competenze che ho acquisito durante il mio percorso accademico.
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex justify-start items-center">
+                                <span class="dark:text-gray-300">🎂 Compleanno:</span>
+                                <span class="text-[#495e8a]">05/12/2005</span>
+                            </li>
+                            <li class="flex justify-start items-center">
+                                <span class="dark:text-gray-300">📞 Telefono:</span>
+                                <span class="text-[#495e8a]">3806537222</span>
+                            </li>
+                            <li class="flex justify-start items-center">
+                                <span class="dark:text-gray-300">📧 Email:</span>
+                                <a href="mailto:adamshehab05@gmail.com" class="text-[#495e8a] underline">adamshehab05@gmail.com</a>
+                            </li>
+                            <li class="flex justify-start items-center">
+                                <span class="dark:text-gray-300">📄 Curriculum:</span>
+                                <a href="img/Cv.pdf" target="_blank" class="text-[#495e8a] underline">CVDownload</a>
+                            </li>
+                        </ul>
+                        <div class="flex gap-4 mt-6">
+                            <a href="https://www.instagram.com/adamm.shehab/" target="_blank" class="hover:scale-110 transition-transform">
+                                <img src="img/Instagram.png" alt="Instagram" class="w-14 h-14 rounded">
+                            </a>
+                            <a href="https://www.linkedin.com/in/adam-shehab-93218232a/" target="_blank" class="hover:scale-110 transition-transform">
+                                <img src="img/LinkedIn.png" alt="LinkedIn" class="w-14 h-14 rounded">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="Skills" class="bg-gray-200 p-8 dark:bg-gray-700">
+            <div class="max-w-7xl mx-auto">
+                <h1 class="text-4xl text-[#495e8a] font-bold mb-2">Skills</h1>
+                <hr class="w-14 border-t-2 border-[#495e8a] mb-8">
+                
+                <div class="contenuto-sezione grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <p class="text-lg font-montserrat leading-relaxed dark:text-gray-300">
+                            Il mio percorso di studi mi ha permesso di acquisire competenze in vari linguaggi di programmazione, software e framework, che ho approfondito autonomamente. La voglia di imparare e mettermi alla prova mi ha aiutato a crescere sia come sviluppatore che come persona, affrontando nuove sfide con determinazione e sempre alla ricerca di strumenti e tecnologie per migliorarmi.
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-5 gap-4">
+                        <a href="https://it.wikipedia.org/wiki/C_(linguaggio_di_programmazione)" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/C.png" alt="C" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+                        <a href="https://it.wikipedia.org/wiki/C%2B%2B" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/C++.png" alt="C++" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+                        <a href="https://it.wikipedia.org/wiki/C_sharp" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/CSharp.png" alt="C#" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+                        <a href="https://it.wikipedia.org/wiki/HTML" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/Html.png" alt="HTML" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+                        <a href="https://it.wikipedia.org/wiki/CSS" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/Css.png" alt="CSS" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+                        <a href="https://it.wikipedia.org/wiki/JavaScript" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/Javascript.png" alt="JavaScript" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+                        <a href="https://www.python.org/about/" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/Python.png" alt="Python" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+                        <a href="https://developer.android.com/studio?hl=it" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/Android.png" alt="Android" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+                        <a href="https://www.php.net/" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/Php.png" alt="Php" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+                        <a href="https://it.wikipedia.org/wiki/JavaScript" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/SQL.png" alt="JavaScript" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+                        <a href="https://code.visualstudio.com/" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/Vscode.png" alt="VScode" class="w-20 h-20 mx-auto rounded shadow-lg">     
+                        </a>
+                        <a href="https://netbeans.apache.org/front/main/index.html" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/Netbeans.png" alt="NetBeans" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+                        <a href="https://notepad-plus-plus.org/" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/NotePad.png" alt="NotePad" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+                        <a href="https://github.com/" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/Github.png" alt="GitHub" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+
+                        <a href="https://about.gitlab.com/" target="_blank" class="transform hover:scale-110 transition-transform">
+                            <img src="img/Git.png" alt="Git" class="w-20 h-20 mx-auto rounded shadow-lg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="Progetti" class=" bg-gray-200 p-8 dark:bg-gray-700">
+            <div class="contenuto-sezione max-w-7xl mx-auto">
+                <h1 class="text-4xl text-[#495e8a] font-bold mb-2">Progetti</h1>
+                <hr class="w-14 border-t-2 border-[#495e8a] mb-8">
+                
+                <div class="flex flex-wrap gap-8 justify-center">
+                    <a href="https://github.com/adamm0512/duel-of-shadows" target="_blank" class="transform hover:scale-105 transition-transform">
+                        <img src="img/project.gif" alt="project" class="w-[615px] rounded-lg shadow-xl">
+                    </a>
+                    <a href="https://github.com/adamm0512/PotterProject" target="_blank" class="transform hover:scale-105 transition-transform">
+                        <img src="img/Potter_resized.png" alt="potter" class="w-[480px] rounded-lg shadow-xl">
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section id="Curiosità"  class="bg-gray-100 p-8 dark:bg-gray-800">
+            <div class="contenuto-sezione max-w-7xl mx-auto ">
+                <h1 class="text-4xl text-[#495e8a] font-bold mb-2">Curiosità</h1>
+                <hr class="w-14 border-t-2 border-[#495e8a] mb-8">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="img/Pallamano.jpeg" alt="Pallamano" class="w-full max-w-lg mx-auto rounded-lg shadow-lg hover:scale-105 transition-transform">
+                    </div>
+                    <div>
+                        <p class="text-lg font-montserrat leading-relaxed dark:text-gray-300">
+                            Non sono solo interessato al mondo videoludico e informatico ma anche a quello sportivo, culinario e il mondo della moda. L'interesse sportivo è nato fin già da piccolo avvicinandomi prima al calcio e successivamente alla pallamano sport che tutt'ora pratico giocando in serie B e di cui sono anche arbitro in serie a Bronze e nelle varie categorie under maschili e femminili.
+                            <br><br>
+                            Al mondo della cucina mi sono avvicinato già nel periodo delle medie dove cucinavo inizialmente piatti semplici con mia madre fino ad arrivare a piatti più complicati.
+                            <br><br>
+                            Mentre l'interesse per il mondo della moda è nato successivamente nei primi anni delle superiori grazie all'influenza di artisti e di amici.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="Contattami" class="bg-gray-200 p-8 relative dark:bg-gray-800">
+            <div class="contenuto-sezione max-w-7xl mx-auto">
+                <h1 class="text-4xl text-[#495e8a] font-bold mb-2">Contattami</h1>
+                <hr class="w-14 border-t-2 border-[#495e8a] mb-8">
+                <div class="bg-gray-100 dark:bg-gray-600 p-8 rounded-lg shadow-lg">
+                    <form name="Contattami" action="https://formspree.io/f/manqdevw" method="POST" class="max-w-2xl mx-auto space-y-6">
+                        <div class="space-y-2">
+                            <label for="nome" class="block font-bold text-gray-700 dark:text-gray-200 ">Nome:</label>
+                            <input type="text" name="nome" id="nome" placeholder="Inserisci il tuo nome" required
+                                class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg  bg-white dark:bg-gray-700 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400">
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <label for="email" class="block font-bold text-gray-700 dark:text-gray-200">Email:</label>
+                            <input type="email" name="email" id="email" placeholder="Inserisci la tua email" required
+                                class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400">
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <label for="oggetto" class="block font-bold text-gray-700 dark:text-gray-200">Oggetto:</label>
+                            <input type="text" name="oggetto" placeholder="Inserisci il tuo Oggetto"
+                               class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400">
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <label for="messaggio" class="block font-bold text-gray-700 dark:text-gray-200">Messaggio:</label>
+                            <textarea name="messaggio" id="messaggio" rows="5" placeholder="Inserisci il tuo Messaggio" required
+                                class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg  bg-white dark:bg-gray-700 text-black dark:text-white placeholder-gray-500 dark:placeholder-gray-400"></textarea>
+                        </div>
+                        <div class="g-recaptcha flex justify-center" data-sitekey="6LfN4twqAAAAAP0VonrDoO8B-ePA4MR3y0geatnV"></div>
+                        <button type="submit" class="w-full bg-[rgb(63,63,63)] dark:bg-gray-700 text-white py-3 rounded-lg font-bold hover:bg-black  hover:scale-105 transition-all dark:hover:bg-black">
+                            Invia
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <button onclick="tornaSu()" 
+                class="absolute bottom-5 right-5 bg-[rgb(63,63,63)] text-white px-5 py-3 rounded-lg text-lg font-bold hover:bg-black hover:scale-105 transition-all dark:bg-gray-700 dark:hover:bg-black">
+                    Torna su
+            </button>
+        </section>
+        <div class="flex justify-center items-center text-white mt-8">
+            2025 Shehab Adam ©,Tutti i diritti riservati.
+        </div>
+        <div id="recaptchaModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-20 hidden dark:bg-gray-800 dark:bg-opacity-20 dark:text-white">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
+                <div class="text-center">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white" id="recaptchaMessage"></h2>
+                    <button id="closeRecaptcha" class="bg-[rgb(63,63,63)] dark:bg-[#495e8a] text-white px-6 py-2 rounded-lg dark:hover:bg-[#364666] transition-colors hover:scale-110">
+                        OK
+                    </button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
