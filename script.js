@@ -66,13 +66,11 @@ function elementoVisibile(el) {// verifica se un elemento è visibile
   );
 }
 
-// Funzione per gestire l'animazione delle sezioni
 function gestisciAnimazioniSezioni() {
-  // Seleziona tutti gli elementi con la classe contenuto-sezione
-  const sezioni = document.querySelectorAll('.contenuto-sezione');
+  const sezioni = document.querySelectorAll('.contenuto-sezione');//prendo tutti i contenuti delle sezioni
   for (let i = 0; i < sezioni.length; i++) {//scorro gli elementi
-      if (elementoVisibile(sezioni[i])) {//se l'elemento è nella viewport
-          sezioni[i].classList.add('visibile');//lo metto vuìisibile
+      if (elementoVisibile(sezioni[i])) {//se l'elemento è visibile
+          sezioni[i].classList.add('visibile');//lo metto vìisibile e parte l'animazione
       }
   }
 }
@@ -80,34 +78,27 @@ function gestisciAnimazioniSezioni() {
 window.addEventListener('scroll', gestisciAnimazioniSezioni);
 window.addEventListener('load', gestisciAnimazioniSezioni);
 
-document.querySelector('form[name="Contattami"]').addEventListener('submit', function(event) {
-  event.preventDefault();
-  
-  const risposta = grecaptcha.getResponse();
-  const paginaEng = window.location.pathname.includes('/Portfolio/indexEng.html');
-  const recaptchaModal = document.getElementById('recaptchaModal');
-  const recaptchaMessage = document.getElementById('recaptchaMessage');
-  
-  if (risposta.length === 0) {
-    // Imposta il messaggio in base alla lingua
-    recaptchaMessage.textContent = paginaEng 
-    if (paginaEng) {
+document.querySelector('form[name="Contattami"]').addEventListener('submit', function(event) {//prendo il submit del form
+  event.preventDefault();//prevenisco il default
+  const risposta = grecaptcha.getResponse();//prendo la risposta del recaptcha
+  const paginaEng = window.location.pathname.includes('/Portfolio/indexEng.html');//prendo il link della pagina inglese
+  const recaptchaModal = document.getElementById('recaptchaModal');//prendo il popup
+  const recaptchaMessage = document.getElementById('recaptchaMessage');//prendo il messaggio del popup
+  if (risposta.length === 0) {//se la risposta del recaptcha è vuota
+    if (paginaEng) {//se la pagina è inglese
       recaptchaMessage.textContent = "Please complete the reCAPTCHA verification";
-    }else{
+    }else{//altrimenti
       recaptchaMessage.textContent = "Per favore, completa il reCAPTCHA";
     }
-      // Mostra il modal
-      recaptchaModal.classList.remove('hidden');
-      recaptchaModal.querySelector('div').classList.add('modal-animation');
-      return false;
+      recaptchaModal.classList.remove('hidden');//rendo il popup visibile
+      recaptchaModal.querySelector('div').classList.add('modal-animation');//aggiungo l'animazione al popup
+      return false;//returno false per fermare il submit
   }
   
   this.submit();
 });
-
-// Gestione chiusura modal con il pulsante
-document.getElementById('closeRecaptcha').addEventListener('click', function() {
-  const recaptchaModal = document.getElementById('recaptchaModal');
-  recaptchaModal.classList.add('hidden');
+document.getElementById('closeRecaptcha').addEventListener('click', function() {//prendo il click del close del popup
+  const recaptchaModal = document.getElementById('recaptchaModal');//prendo il popup
+  recaptchaModal.classList.add('hidden');//lo rendo non visibile
 });
 
